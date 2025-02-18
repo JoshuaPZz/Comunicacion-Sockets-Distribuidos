@@ -20,8 +20,10 @@ public class OperacionSuma {
                     double a = Double.parseDouble(parts[0]);
                     double b = Double.parseDouble(parts[1]);
                     double result = a + b;
-
-                    out.println(result);
+                    System.out.println("Sumando "+a+" con "+b);
+                    System.out.println("El resultado es: "+result);
+                    System.out.println("Mandando resultado... .|.");
+                    out.println(result);                    
                     clientSocket.close();
                 } catch (IOException | NumberFormatException e) {
                     e.printStackTrace();

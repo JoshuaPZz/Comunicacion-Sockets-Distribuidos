@@ -4,7 +4,7 @@ import java.net.*;
 
 public class Cliente {
     public static void main(String[] args) throws IOException {
-        Socket socket = new Socket("IP DE SUMA O LOCALHOST", 1236);
+        Socket socket = new Socket("26.128.182.138", 1236);
         BufferedReader in = new BufferedReader(
                 new InputStreamReader(socket.getInputStream()));
         PrintWriter out = new PrintWriter(socket.getOutputStream(), true);

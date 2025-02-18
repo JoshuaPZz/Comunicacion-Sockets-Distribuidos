@@ -20,6 +20,9 @@ public class OperacionMulti {
                     double a = Double.parseDouble(parts[0]);
                     double b = Double.parseDouble(parts[1]);
                     double result = a * b;
+                    System.out.println("Multiplicando "+a+" con "+b);
+                    System.out.println("El resultado es: "+result);
+                    System.out.println("Mandando resultado... .|.");
 
                     out.println(result);
                     clientSocket.close();
