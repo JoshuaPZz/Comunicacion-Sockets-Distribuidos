@@ -11,7 +11,7 @@ public class Cliente {
 
         BufferedReader consoleReader = new BufferedReader(
                 new InputStreamReader(System.in));
-        System.out.print("Ingresa tres numeros (a,b,c): ");
+        System.out.print("Ingresa tres numeros en el siguiente formato: 'a,b,c' (la operacion se realizara de la forma (a+b)*c): ");
         String input = consoleReader.readLine();
 
         out.println(input);
