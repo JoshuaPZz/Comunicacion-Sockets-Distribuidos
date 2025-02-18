@@ -5,7 +5,7 @@ import java.net.*;
 public class OperacionSuma {
     public static void main(String[] args) throws IOException {
         ServerSocket serverSocket = new ServerSocket(1234);
-        System.out.println("Addition Server listening on port 1234...");
+        System.out.println("Server suma escuchando en puerto 1234...");
 
         while (true) {
             Socket clientSocket = serverSocket.accept();
@@ -22,7 +22,7 @@ public class OperacionSuma {
                     double result = a + b;
                     System.out.println("Sumando "+a+" con "+b);
                     System.out.println("El resultado es: "+result);
-                    System.out.println("Mandando resultado... .|.");
+                    System.out.println("Mandando resultado...");
                     out.println(result);                    
                     clientSocket.close();
                 } catch (IOException | NumberFormatException e) {

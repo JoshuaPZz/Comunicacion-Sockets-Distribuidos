@@ -5,7 +5,7 @@ import java.net.*;
 public class ServidorCalculo {
     public static void main(String[] args) throws IOException {
         ServerSocket serverSocket = new ServerSocket(1236);
-        System.out.println("Main Server listening on port 1236...");
+        System.out.println("Servidor principal escuchando en puerto 1236...");
 
         while (true) {
             Socket clientSocket = serverSocket.accept();

@@ -5,7 +5,7 @@ import java.net.*;
 public class OperacionMulti {
     public static void main(String[] args) throws IOException {
         ServerSocket serverSocket = new ServerSocket(1235);
-        System.out.println("Multiplication Server listening on port 1235...");
+        System.out.println("Server multiplicacion lescuchando en puerto 1235...");
 
         while (true) {
             Socket clientSocket = serverSocket.accept();
@@ -22,7 +22,7 @@ public class OperacionMulti {
                     double result = a * b;
                     System.out.println("Multiplicando "+a+" con "+b);
                     System.out.println("El resultado es: "+result);
-                    System.out.println("Mandando resultado... .|.");
+                    System.out.println("Mandando resultado...");
 
                     out.println(result);
                     clientSocket.close();
