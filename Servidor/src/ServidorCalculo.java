@@ -1,4 +1,3 @@
-
 import java.io.*;
 import java.net.*;
 
@@ -25,40 +24,53 @@ public class ServidorCalculo {
                         double sum = 0;
                         double product = 0;
 
+                        System.out.println("Recibidos operandos a: " + a + ", b = " + b + ", c = " + c);
+
                         try {
                             // SUMA
-                            Socket op1Socket = new Socket("26.128.182.138", 1234);
+                            Socket op1Socket = new Socket("10.43.96.14", 1234);
                             PrintWriter op1Out = new PrintWriter(op1Socket.getOutputStream(), true);
                             BufferedReader op1In = new BufferedReader(
                                     new InputStreamReader(op1Socket.getInputStream()));
+                            System.out.println("Enviando " + a + " + " + b + " para suma");
                             op1Out.println(a + "," + b);
-                            Double.parseDouble(op1In.readLine());
+                            sum = Double.parseDouble(op1In.readLine());
+                            System.out.println("Resultado : " + sum + " recibida");
+                            System.out.println("Enviando resultado a servidor de multiplicacion...");
                             op1Socket.close();
 
                         } catch (Exception e) {
                             if (e instanceof ConnectException || e instanceof java.rmi.ConnectException) {
                                 System.out.println("Error: No se pudo conectar con el servidor de suma");
+                                System.out.println("Reemplazando a servidor de suma...");
                                 sum = a + b;
-                            }
+                                System.out.println("Sumando " + a + " + " + b);                            }
                         }
 
                         try {
                             // MULTIPLICACION
-                            Socket op2Socket = new Socket("26.184.237.129", 1235);
+                            Socket op2Socket = new Socket("10.43.96.14", 1235);
                             PrintWriter op2Out = new PrintWriter(op2Socket.getOutputStream(), true);
                             BufferedReader op2In = new BufferedReader(
                                     new InputStreamReader(op2Socket.getInputStream()));
+                            System.out.println("Enviando " + sum + " y " + "c " + "a servidor de multiplicacion");
                             op2Out.println(sum + "," + c);
                             product = Double.parseDouble(op2In.readLine());
+                            System.out.println("Resultado final: " + product + " recibido");
                             op2Socket.close();
 
                         } catch (Exception e) {
                             if (e instanceof ConnectException || e instanceof java.rmi.ConnectException) {
                                 System.out.println("Error: No se pudo conectar con el servidor de multiplicacion");
+                                System.out.println("Reemplazando a servidor de multiplicacion...");
                                 product = sum * c;
+                                System.out.println("Multiplicando " + sum + " y " + c);
+
                             }
-                            out.println(product);
+                        
                         }
+                        System.out.println("Enviando resultado a cliente...");
+                        out.println(product);
 
                     } catch (Exception e) {
                         if (e instanceof NumberFormatException) {
