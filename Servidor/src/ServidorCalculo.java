@@ -78,6 +78,7 @@ public class ServidorCalculo {
                             out.println("El formato que ingresaste es invalido :(");
                         } else if (e instanceof ArrayIndexOutOfBoundsException) {
                             System.out.println("Error: El cliente no envio la cantidad de numeros correcta");
+                            out.println("Ingresaste una cantidad de argumentos invalida :(");
                         } else if (e instanceof ConnectException || e instanceof java.rmi.ConnectException) {
                             System.out.println("Error: No se pudo conectar con el cliente");
                         }
