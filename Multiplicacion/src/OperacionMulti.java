@@ -5,7 +5,7 @@ import java.net.*;
 public class OperacionMulti {
     public static void main(String[] args) throws IOException {
         ServerSocket serverSocket = new ServerSocket(1235);
-        System.out.println("Server multiplicacion lescuchando en puerto 1235...");
+        System.out.println("Server multiplicacion escuchando en puerto 1235...");
 
         while (true) {
             Socket clientSocket = serverSocket.accept();
